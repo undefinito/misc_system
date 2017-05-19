@@ -39,10 +39,10 @@ class Render extends MX_Controller {
 		}
 
 		// load js files
-		if(file_exists(FCPATH."application/modules/{$params['module']}/views/js_files.php"))
+		if(file_exists(FCPATH."application/modules/renderer/views/js_files.php"))
 		{
 			$_js_params = array_merge($params['view_params'],array('js_paths'=>$params['js_paths']));
-			$_page_parts['js'] = $this->{$params['module']}->load->view('js_files',$_js_params,true);
+			$_page_parts['js'] = $this->load->view('js_files',$_js_params,true);
 		}
 
 		// load footer <footer>

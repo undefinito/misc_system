@@ -7,8 +7,20 @@ class Auth_model extends CI_Model {
 	{
 		parent::__construct();
 		$this->load->database('default');
+
+		if(empty($_SESSION))
+		{
+			session_start();
+		}
 	}
 
+	/**
+	 * TODO: make better/more secure
+	 * checkUserPass - checks if validity of username password combination
+	 * @param  string $u  username
+	 * @param  string $pw password
+	 * @return boolean     TRUE if valid, FALSE otherwise
+	 */
 	public function checkUserPass($u=null,$pw=null)
 	{
 		$this->db->distinct();

@@ -13,7 +13,8 @@
 	<?php endif ?>
 
 	<div class="login-box-body">
-		<form action="<?php echo base_url('auth/login') ?>" method="post">
+		<div id="login_alert" hidden></div>
+		<form id="login_frm" action="<?php echo base_url('auth/login') ?>" method="post">
 			<div class="form-group has-feedback">
 				<input class="form-control" name="u" placeholder="Username" type="text">
 				<span class="glyphicon glyphicon-user form-control-feedback"></span>
@@ -24,7 +25,7 @@
 			</div>
 			<div class="row">
 				<div class="col-xs-4 col-xs-offset-4">
-					<button type="submit" class="btn btn-warning btn-sm btn-block btn-flat">Sign In</button>
+					<button id="sign_in_btn" type="button" class="btn btn-warning btn-sm btn-block btn-flat">Sign In</button>
 				</div>
 				<!-- /.col -->
 			</div>

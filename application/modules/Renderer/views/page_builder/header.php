@@ -16,4 +16,6 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo asset_url('libs/admin_lte/dist/css/AdminLTE.min.css') ?>" />
 	<link rel="stylesheet" type="text/css" href="<?php echo asset_url('libs/admin_lte/dist/css/skins/skin-yellow.min.css') ?>" />
 	<link rel="stylesheet" type="text/css" href="<?php echo asset_url('libs/admin_lte/dist/css/custom.css') ?>" />
+	<!-- FONTAWESOME -->
+	<link rel="stylesheet" type="text/css" href="<?php echo asset_url('libs/fontawesome/css/font-awesome.min.css') ?>">
 </head>
