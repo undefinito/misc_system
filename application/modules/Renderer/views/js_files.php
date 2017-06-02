@@ -6,7 +6,6 @@
 <script type="text/javascript" src="<?php echo asset_url('libs/bootstrap/js/bootstrap.min.js') ?>"></script>
 <!-- AdminLTE JS -->
 <script type="text/javascript" src="<?php echo asset_url('libs/admin_lte/dist/js/app.min.js') ?>"></script>
-<?php var_dump($js_paths) ?>
 
 <script type="text/javascript">
 	var baseurl = <?php echo base_url(); ?>
@@ -16,7 +15,7 @@
 	<?php foreach ($js_paths as $key => $value): ?>
 		<?php switch ($key):
 			default: ?>
-			<?php if (file_exists(FCPATH."assets/js/page/{$key}/{$value}.js")): ?>
+			<?php if (file_exists(asset_path("/js/page/{$key}/{$value}.js"))): ?>
 			<script type="text/javascript" src="<?php echo asset_url("js/page/{$key}/{$value}.js") ?>"></script>
 			<?php else: ?>
 			<script type="text/javascript">

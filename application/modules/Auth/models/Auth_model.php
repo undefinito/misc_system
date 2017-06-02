@@ -8,7 +8,7 @@ class Auth_model extends CI_Model {
 		parent::__construct();
 		$this->load->database('default');
 
-		if(empty($_SESSION))
+		if( ! isset($_SESSION))
 		{
 			session_start();
 		}

@@ -33,38 +33,49 @@ class Render extends MX_Controller {
 			);
 
 		// load header <head>
-		if(file_exists(FCPATH."application/modules/renderer/views/page_builder/header.php"))
+		if(file_exists(modules_path("/renderer/views/page_builder/header.php")))
 		{
 			$_page_parts['header'] = $this->load->view('page_builder/header',$params['view_params'],true);
 		}
 
 		// load js files
-		if(file_exists(FCPATH."application/modules/renderer/views/js_files.php"))
+		if(file_exists(modules_path("/renderer/views/js_files.php")))
 		{
 			$_js_params = array_merge($params['view_params'],array('js_paths'=>$params['js_paths']));
 			$_page_parts['js'] = $this->load->view('js_files',$_js_params,true);
 		}
 
 		// load footer <footer>
-		if(file_exists(FCPATH."application/modules/renderer/views/page_builder/footer.php"))
+		if(file_exists(modules_path("/renderer/views/page_builder/footer.php")))
 		{
 			$_page_parts['footer'] = $this->load->view('page_builder/footer',$params['view_params'],true);
 		}
 
-		if(file_exists(FCPATH."application/modules/{$params['module']}/views/{$params['page']}.php"))
+		// determine first the actual view format/layout
+		switch ($params['page'])
 		{
-			// load actual view
-			$_page_parts['body'] = $this->{$params['module']}->load->view($params['page'],$params['view_params'],true);
-		}
-		else
-		{
-			// show failed msg
-			$this->load->view('failed',array('view_name'=>$params['page']));
-			return;
+			case 'home':
+				
+				break;
+				
+			default:
+				if(file_exists(modules_path("/{$params['module']}/views/{$params['page']}.php")))
+				{
+					// load actual view
+					$_page_parts['body'] = $this->{$params['module']}->load->view($params['page'],$params['view_params'],true);
+				}
+				else
+				{
+					// show failed msg
+					$this->load->view('failed',array('view_name'=>$params['page']));
+					return;
+				}
+				break;
 		}
 
+
 		// load page to contain everything
-		if(file_exists(FCPATH."application/modules/renderer/views/page_builder/body.php"))
+		if(file_exists(modules_path("/renderer/views/page_builder/body.php")))
 		{
 			$this->load->view('page_builder/body',$_page_parts);
 		}

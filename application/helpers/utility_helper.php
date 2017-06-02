@@ -8,3 +8,19 @@ if( ! function_exists('asset_url'))
 		return base_url("assets/{$url}");
 	}	
 }
+
+if( ! function_exists('asset_path'))
+{
+	function asset_path($path='')
+	{
+		return FCPATH . "assets/{$path}";
+	}	
+}
+
+if( ! function_exists('modules_path'))
+{
+	function modules_path($path='')
+	{
+		return FCPATH . "application/modules/{$path}";
+	}
+}

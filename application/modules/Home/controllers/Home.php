@@ -7,19 +7,36 @@ class Home extends MX_Controller {
 	{
 		// TODO: check if logged in
 
-		$this->load->model('auth/auth_model','au');
+		if( ! isset($_SESSION))
+		{
+			session_start();
+		}
 
 		$render_params = array(
 				'body_class'  => 'hold-transition login-page',
 				'page' 		  => 'login',
 				'module'	  => 'home',
 				'view_params' => array(
-					'title'	=> 'Misc System',
+					'title'		   => 'Misc System',
+					'current_page' => 'login'
 				),
 				'js_paths'	  => array(
 					'auth/login' => 'main_js',
 				),
 			);
+
+
+		// if logged in
+		if( ! empty($_SESSION['logged_in']))
+		{
+			$render_params['body_class'] = 'sidebar-mini skin-yellow';
+			$render_params['page'] 		 = 'home';
+			$render_params['view_params']['current_page'] = 'home';
+			$render_params['js_paths'] = array(
+					'home/home'	=> 'main_js'
+				);
+		}
+
 		echo Modules::run('renderer/render/page',$render_params);
 	}
 }

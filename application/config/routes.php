@@ -57,7 +57,8 @@ $route['translate_uri_dashes'] = FALSE;
 //////////////////
 // ERROR Module //
 //////////////////
-$route['error'] = 'error_con';
+$route['error'] = 'error/error_con';
+$route['error/(:num)'] = 'error/error_con/index/$1';
 
 // RENDERER module
 $route['renderer'] = 'render';

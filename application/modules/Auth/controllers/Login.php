@@ -7,8 +7,8 @@ class Login extends MX_Controller {
 	{
 		parent::__construct();
 		$this->load->model('auth_model','au');
-		
-		if(empty($_SESSION))
+
+		if( ! isset($_SESSION))
 		{
 			session_start();
 		}
@@ -16,8 +16,15 @@ class Login extends MX_Controller {
 
 	public function index()
 	{
+		echo '<head><title>Logging in...</title></head>';
+
 		$user = $this->input->post('u');
 		$pass = $this->input->post('pw');
+
+		if(empty($user) OR empty($pass))
+		{
+			redirect('error/444','location');
+		}
 
 		$_ex = false;
 		if($this->au->checkUserPass($user,$pass))
@@ -25,6 +32,9 @@ class Login extends MX_Controller {
 			$_ex = true;
 			$_SESSION['logged_in'] = true;
 		}
+
+		var_dump($_SESSION);
+		redirect('home','location');
 	}
 
 	public function verify()
@@ -38,18 +48,14 @@ class Login extends MX_Controller {
 		$user = $this->input->post('u');
 		$pass = $this->input->post('pw');
 
-		if(empty($_SESSION))
+		if( ! isset($_SESSION))
 		{
 			session_start();
 		}
 
-		$_ex = false;
-		if($this->au->checkUserPass($user,$pass))
-		{
-			$_ex = true;
-			$_SESSION['logged_in'] = true;
-		}
+		// verify username/password combination
+		$_ex = $this->au->checkUserPass($user,$pass);
 
-		echo json_encode($_ex);
+		echo json_encode(array('verified' => @intval($_ex)));
 	}
 }

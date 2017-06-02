@@ -35,13 +35,31 @@ function()
 					var alert_class = '';
 					var html = '';
 
-					$('#login_alert')
-						.attr('class','alert alert-danger')
-						.html();
-					$('#login_alert')
-						.slideDown()
-						.delay(3000)
-						.slideUp();
+					if(result['verified'])
+					{
+						$('#login_alert')
+							.attr('class','alert alert-success')
+							.html('<i class="fa fa-check"></i> Logged in');
+						$('#login_alert')
+							.slideDown()
+							.delay(3000)
+							.slideUp();
+						setTimeout(
+							function()
+							{
+								$('#login_frm').submit();
+							},1000);
+					}
+					else
+					{
+						$('#login_alert')
+							.attr('class','alert alert-warning')
+							.html('<i class="fa fa-exclamation-triangle"></i> Wrong username/password');
+						$('#login_alert')
+							.slideDown()
+							.delay(3000)
+							.slideUp();
+					}
 				})
 			.fail(
 				function(a,b,c)
