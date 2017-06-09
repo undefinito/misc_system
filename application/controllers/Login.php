@@ -23,7 +23,7 @@ class Login extends CI_Controller {
 
 		if(empty($user) OR empty($pass))
 		{
-			redirect('error/444','location');
+			redirect('error/404','location');
 		}
 
 		$_ex = false;
@@ -41,7 +41,7 @@ class Login extends CI_Controller {
 	{
 		if( ! $this->input->is_ajax_request())
 		{
-			redirect('errors/error_404','location');
+			redirect('error/404','location');
 			return;
 		} 
 

@@ -37,6 +37,8 @@ class Home extends CI_Controller {
 				);
 		}
 
-		echo Modules::run('renderer/render/page',$render_params);
+		$this->load->library('render');
+		
+		$this->render->page($render_params);
 	}
 }

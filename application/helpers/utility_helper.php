@@ -17,10 +17,10 @@ if( ! function_exists('asset_path'))
 	}	
 }
 
-if( ! function_exists('modules_path'))
+if( ! function_exists('views_path'))
 {
-	function modules_path($path='')
+	function views_path($path='')
 	{
-		return FCPATH . "application/modules/{$path}";
-	}
+		return FCPATH . "application/views/{$path}";
+	}	
 }
