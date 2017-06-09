@@ -6,12 +6,6 @@
 	</div>
 	<!-- /.login-logo -->
 	
-	<?php if ( ! empty($invalid_auth)): ?>
-	<div class="alert alert-danger">
-		Wrong <b>username</b> or <b>password</b>
-	</div>
-	<?php endif ?>
-
 	<div class="login-box-body">
 		<div id="login_alert" hidden></div>
 		<form id="login_frm" action="<?php echo base_url('auth/login') ?>" method="post">

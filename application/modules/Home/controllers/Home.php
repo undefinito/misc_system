@@ -29,7 +29,7 @@ class Home extends MX_Controller {
 		// if logged in
 		if( ! empty($_SESSION['logged_in']))
 		{
-			$render_params['body_class'] = 'sidebar-mini skin-yellow';
+			$render_params['body_class'] = 'layout-top-nav skin-yellow';
 			$render_params['page'] 		 = 'home';
 			$render_params['view_params']['current_page'] = 'home';
 			$render_params['js_paths'] = array(

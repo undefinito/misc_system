@@ -55,7 +55,8 @@ class Render extends MX_Controller {
 		switch ($params['page'])
 		{
 			case 'home':
-				
+				// menu
+
 				break;
 				
 			default:
