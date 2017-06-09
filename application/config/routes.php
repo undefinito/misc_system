@@ -54,17 +54,12 @@ $route['default_controller'] = 'Home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-//////////////////
-// ERROR Module //
-//////////////////
-$route['error'] = 'error/error_con';
-$route['error/(:num)'] = 'error/error_con/index/$1';
+//////////////////////
+// ERROR Controller //
+//////////////////////
+$route['error'] = 'error_con/index';
+$route['error/(:num)'] = 'error_con/index/$1';
 
-// RENDERER module
-$route['renderer'] = 'render';
-
-// prevent direct access to certain modules/controllers/methods
+// prevent direct access to certain controllers/methods
 // (show error 404)
-$route['error/error_con/(:any)'] = 'error_con/index/404';
-$route['renderer/render/(:any)'] = 'error_con/index/404';
-$route['render/(:any)'] = 'error_con/index/404';
+$route['error_con/(:any)'] = 'error_con/index/404';

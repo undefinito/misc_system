@@ -1,13 +1,20 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Render extends MX_Controller {
+class Render {
+
+	protected $CI;
+
+	public function __construct()
+	{
+		$this->CI = &get_instance();
+	}
 
 	public function page($params=null)
 	{
 		if(empty($params) OR empty($params['page']) OR empty($params['module']))
 		{
-			echo Modules::run('error/error_con/index','404');
+			echo redirect('error/404');
 			return;
 		}
 
