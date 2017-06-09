@@ -12,7 +12,7 @@ class Render {
 
 	public function page($params=null)
 	{
-		if(empty($params) OR empty($params['page']) OR empty($params['module']))
+		if(empty($params) OR empty($params['page']))
 		{
 			redirect('error/404');
 			return;
@@ -59,15 +59,16 @@ class Render {
 		switch ($params['page'])
 		{
 			case 'home':
-				// menu
-
+				// top navigation menu
+				$_menu = $this->menuHTML('top-nav',$params['view_params']);
+				$_page_parts['body'] = $_menu . $_page_parts['body'];
 				break;
 				
 			default:
-				if(file_exists(views_path("/{$params['module']}/views/{$params['page']}.php")))
+				if(file_exists(views_path("/{$params['page']}.php")))
 				{
 					// load actual view
-					$_page_parts['body'] = $this->{$params['module']}->load->view($params['page'],$params['view_params'],true);
+					$_page_parts['body'] = $this->CI->load->view($params['page'],$params['view_params'],true);
 				}
 				else
 				{
@@ -90,5 +91,41 @@ class Render {
 			$this->CI->load->view('failed',array('view_name'=>$params['page']));
 			return;
 		}
+	}
+
+	/**
+	 * menuHTML - generate menu HTML depending on $which (top-nav|side-nav)
+	 * @param  string $which       top or side navigation menu
+	 * @param  array  $view_params parameters for the current view/page
+	 * @return string              menu HTML, NULL on unrecognized $which, or FALSE on failure
+	 */
+	private function menuHTML($which='side-nav',$view_params=null)
+	{
+		switch ($which)
+		{
+			case 'side-nav':
+				break;
+
+			case 'top-nav':
+				// top navigation menu
+				if(file_exists(views_path("/page_builder/menu/top_nav.php")))
+				{
+					if( ! is_array($view_params) && ! is_null($view_params))
+					{
+						$view_params = null;
+					}
+
+					return $this->CI->load->view('page_builder/menu/top_nav',$view_params,true);
+				}
+				else
+				{
+					return null;
+				}
+				break;
+			
+			default:
+				return null;
+		}
+
 	}
 }

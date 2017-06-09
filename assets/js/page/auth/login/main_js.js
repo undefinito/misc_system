@@ -20,7 +20,7 @@ function()
 
 			// check login credentials
 			$.ajax({
-				url: 	  baseurl+'auth/login/verify',
+				url: 	  baseurl+'login/verify',
 				method:   'POST',
 				dataType: 'json',
 				data: 

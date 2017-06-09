@@ -8,7 +8,7 @@
 	
 	<div class="login-box-body">
 		<div id="login_alert" hidden></div>
-		<form id="login_frm" action="<?php echo base_url('auth/login') ?>" method="post">
+		<form id="login_frm" action="<?php echo base_url('login') ?>" method="post">
 			<div class="form-group has-feedback">
 				<input class="form-control" name="u" placeholder="Username" type="text">
 				<span class="fa fa-user fa-lg form-control-feedback"></span>

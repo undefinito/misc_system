@@ -15,7 +15,6 @@ class Home extends CI_Controller {
 		$render_params = array(
 				'body_class'  => 'hold-transition login-page',
 				'page' 		  => 'login',
-				'module'	  => 'home',
 				'view_params' => array(
 					'title'		   => 'Misc System',
 					'current_page' => 'login'
@@ -38,7 +37,7 @@ class Home extends CI_Controller {
 		}
 
 		$this->load->library('render');
-		
+
 		$this->render->page($render_params);
 	}
 }

@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAAA,yBAAyB;EACxB,aAAa;IACZ,UAAU,EAAE,KAAK",
+"sources": ["_fixes.scss"],
+"names": [],
+"file": "main.css"
+}
