@@ -61,6 +61,16 @@ class Render {
 			case 'home':
 				// top navigation menu
 				$_menu = $this->menuHTML('top-nav',$params['view_params']);
+				if(file_exists(views_path("/{$params['page']}.php")))
+				{
+					// load actual view
+					$_page_parts['body'] = $this->CI->load->view($params['page'],$params['view_params'],true);
+				}
+				else
+				{
+					// show failed msg
+					$this->CI->load->view('failed',array('view_name'=>$params['page']));
+				}
 				$_page_parts['body'] = $_menu . $_page_parts['body'];
 				break;
 				

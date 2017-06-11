@@ -18,4 +18,6 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo asset_url('libs/admin_lte/dist/css/custom.css') ?>" />
 	<!-- FONTAWESOME -->
 	<link rel="stylesheet" type="text/css" href="<?php echo asset_url('libs/fontawesome/css/font-awesome.min.css') ?>">
+	<!-- SYSTEM-SPECIFIC CSS -->
+	<link rel="stylesheet" type="text/css" href="<?php echo asset_url('scss/main.css') ?>">
 </head>

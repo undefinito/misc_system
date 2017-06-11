@@ -7,6 +7,7 @@ class Login extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('auth_model','au');
+		$this->load->model('user_model','user');
 
 		if( ! isset($_SESSION))
 		{
@@ -26,14 +27,19 @@ class Login extends CI_Controller {
 			redirect('error/404','location');
 		}
 
-		$_ex = false;
 		if($this->au->checkUserPass($user,$pass))
 		{
-			$_ex = true;
+			// logged in flag
 			$_SESSION['logged_in'] = true;
+
+			$uid = $this->user->getUserID($user);
+
+			// user data
+			$user_data = $this->user->getUserData($uid);
+			// save user data to session
+			$_SESSION['user_data'] = $user_data;
 		}
 
-		var_dump($_SESSION);
 		redirect('home','location');
 	}
 

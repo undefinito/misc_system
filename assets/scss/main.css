@@ -1,3 +1,23 @@
+.bg-red {
+  background-color: #dd3b49;
+}
+
+.bg-black {
+  background-color: #333;
+}
+
+.bg-white {
+  background-color: #fff;
+}
+
+.bg-gray {
+  background-color: #d2d6de;
+}
+
+.bg-none {
+  background-color: transparent;
+}
+
 @media (max-width: 767px) {
   .top-menu-fix {
     margin-top: -50px;

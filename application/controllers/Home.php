@@ -3,10 +3,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Home extends CI_Controller {
 
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('systems_model','sys');
+	}
+
 	public function index()
 	{
-		// TODO: check if logged in
-
 		if( ! isset($_SESSION))
 		{
 			session_start();
@@ -28,6 +32,11 @@ class Home extends CI_Controller {
 		// if logged in
 		if( ! empty($_SESSION['logged_in']))
 		{
+			// get all systems
+			$systems = $this->sys->getAll();
+
+			$render_params['view_params']['systems_list'] = empty($systems) ? array() : $systems;
+
 			$render_params['body_class'] = 'layout-top-nav skin-yellow';
 			$render_params['page'] 		 = 'home';
 			$render_params['view_params']['current_page'] = 'home';

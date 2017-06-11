@@ -16,7 +16,7 @@
 							<!-- The user image in the navbar-->
 							<img src="<?php echo asset_url('img/anonymous.png') ?>" class="user-image" alt="User Image">
 							<!-- hidden-xs hides the username on small devices so only the image appears. -->
-							<span class="hidden-xs"><?php echo empty($full_name) ? '[user full name]' : $full_name ?></span>
+							<span class="hidden-xs"><?php echo empty($_SESSION['user_data']['full_name']) ? '[user full name]' : $_SESSION['user_data']['full_name'] ?></span>
 						</a>
 						<ul class="dropdown-menu">
 							<!-- The user image in the menu -->
@@ -24,21 +24,18 @@
 								<img src="<?php echo asset_url('img/anonymous.png') ?>" class="img-circle" alt="User Image">
 
 								<p>
-								<?php echo empty($full_name) ? '[user full name]' : $full_name ?>
-								<small>Member since <?php echo empty($date_created) ? '[date]' : $date_created ?></small>
+								<?php echo empty($_SESSION['user_data']['full_name']) ? '[user full name]' : $_SESSION['user_data']['full_name'] ?>
+								<small>User since <?php echo empty($_SESSION['user_data']['user_since']) ? '[date]' : $_SESSION['user_data']['user_since'] ?></small>
 								</p>
 							</li>
 							<!-- Menu Body -->
 							<li class="user-body">
 								<div class="row">
-								<div class="col-xs-4 text-center">
-									<a href="#">Admin</a>
+								<div class="col-xs-6 text-center">
+									<a href="<?php echo base_url('account') ?>">Account</a>
 								</div>
-								<div class="col-xs-4 text-center">
-									<a href="#">Sales</a>
-								</div>
-								<div class="col-xs-4 text-center">
-									<a href="#">Friends</a>
+								<div class="col-xs-6 text-center">
+									<a href="<?php echo base_url('settings') ?>">Settings</a>
 								</div>
 								</div>
 								<!-- /.row -->
@@ -50,7 +47,7 @@
 					</li>
 
 					<li>
-						<a href="<?php echo base_url('logout') ?>" title="Log out">
+						<a href="<?php echo base_url('logout') ?>" title="Log out" data-toggle="tooltip" data-placement="auto">
 							<i class="fa fa-power-off"></i>
 						</a>
 					</li>

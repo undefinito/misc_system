@@ -1,0 +1,10 @@
+@each $a in map-keys($all-colors)
+{
+	.bg-#{$a}{
+		background-color: map-get($all-colors,$a);
+	}
+}
+
+.bg-none{
+	background-color: transparent;
+}
