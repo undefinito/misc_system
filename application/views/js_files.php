@@ -10,7 +10,8 @@
 <script type="text/javascript" src="<?php echo asset_url('js/common_func.js') ?>"></script>
 
 <script type="text/javascript">
-	var baseurl = <?php echo base_url(); ?>
+	var baseurl = <?php echo base_url(); ?>;
+	var user_id = <?php echo json_encode(empty($_SESSION['user_data']['id']) ? '' : $_SESSION['user_data']['id']) ?>;
 </script>
 
 <?php if ( ! empty($js_paths) && is_array($js_paths)): ?>

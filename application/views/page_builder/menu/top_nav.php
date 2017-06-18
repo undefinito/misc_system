@@ -16,7 +16,7 @@
 							<!-- The user image in the navbar-->
 							<img src="<?php echo asset_url('img/anonymous.png') ?>" class="user-image" alt="User Image">
 							<!-- hidden-xs hides the username on small devices so only the image appears. -->
-							<span class="hidden-xs"><?php echo empty($_SESSION['user_data']['full_name']) ? '[user full name]' : $_SESSION['user_data']['full_name'] ?></span>
+							<span class="hidden-xs menu_full_name"><?php echo empty($_SESSION['user_data']['full_name']) ? '[user full name]' : $_SESSION['user_data']['full_name'] ?></span>
 						</a>
 						<ul class="dropdown-menu">
 							<!-- The user image in the menu -->
@@ -24,7 +24,7 @@
 								<img src="<?php echo asset_url('img/anonymous.png') ?>" class="img-circle" alt="User Image">
 
 								<p>
-								<?php echo empty($_SESSION['user_data']['full_name']) ? '[user full name]' : $_SESSION['user_data']['full_name'] ?>
+								<span class="menu_full_name"><?php echo empty($_SESSION['user_data']['full_name']) ? '[user full name]' : $_SESSION['user_data']['full_name'] ?></span>
 								<small>User since <?php echo empty($_SESSION['user_data']['user_since']) ? '[date]' : $_SESSION['user_data']['user_since'] ?></small>
 								</p>
 							</li>

@@ -50,7 +50,7 @@
 							<div class="row">
 								<label class="col-xs-6"> Last updated </label>
 								<div class="col-xs-6">
-									<small> <?php echo empty($_SESSION['user_data']['last_update_formatted']) ? '-' : $_SESSION['user_data']['last_update_formatted'] ?> </small>
+									<small id="last_update_disp"> <?php echo empty($_SESSION['user_data']['last_update_formatted']) ? '-' : $_SESSION['user_data']['last_update_formatted'] ?> </small>
 								</div>
 							</div>
 
@@ -73,11 +73,12 @@
 				<div id="info_tab" class="box box-warning box-solid tab-pane active">
 					<div class="box-header with-border">
 						<h4 class="box-title bold">
+							<i class="fa fa-user"></i>
 							Information
 						</h4>
 						<div class="box-tools">
 							<div class="btn-toolbar pull-right">
-								<button id="info_save_btn" type="button" class="btn btn-sm btn-default">
+								<button id="info_save_btn" type="button" class="btn btn-sm btn-default hidden">
 									<i class="fa fa-save"></i>
 									Save
 								</button>
@@ -138,6 +139,7 @@
 				<div id="secu_tab" class="box box-warning box-solid tab-pane">
 					<div class="box-header with-border">
 						<h4 class="box-title bold">
+							<i class="fa fa-lock"></i>
 							Security
 						</h4>
 						<div class="box-tools">
