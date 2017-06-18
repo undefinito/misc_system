@@ -20,3 +20,5 @@ application/logs/*
 *.stTheme.cache
 *.sublime-workspace
 *.sublime-project
+
+assets/scss/main.css.map
