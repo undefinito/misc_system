@@ -18,12 +18,15 @@ class User_model extends CI_Model {
 	{
 		$select = array(
 				'u.id',
+				'u.username',
 				'ui.first_name',
 				'ui.middle_name',
 				'ui.last_name',
 				"CONCAT(ui.last_name,', ',ui.first_name,' ',LEFT(ui.middle_name,1),'.') full_name",
 				'u.date_created',
-				"DATE_FORMAT(u.date_created,'%M %Y') user_since");
+				'ui.last_update',
+				"DATE_FORMAT(u.date_created,'%M %Y') user_since",
+				"DATE_FORMAT(ui.last_update,'%M %d %Y %h:%i %p') last_update_formatted");
 		$this->db->select($select);
 		$this->db->from('user u');
 		$this->db->join('user_info ui','u.id = ui.user_id','left');

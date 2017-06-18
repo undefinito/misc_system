@@ -1,6 +1,17 @@
+/* TYPOGRAPHY */
+
+.bold{
+	font-weight: 700;
+}
+
+/* ----------------------------- */
+
+/* BACKGROUND COLORS */
 @each $a in map-keys($all-colors)
 {
-	.bg-#{$a}{
+	/* #{$a} */
+	.bg-#{$a}
+	{
 		background-color: map-get($all-colors,$a);
 	}
 }
@@ -8,3 +19,30 @@
 .bg-none{
 	background-color: transparent;
 }
+
+/* ------------------ */
+
+/* SPACING (MARGIN) & PADDING (duh) */
+
+@each $dir in (top,bottom,left,right)
+{
+	@for $i from 1 through 100 {
+		.space-#{$dir}-#{$i} {
+			margin-#{$dir}: $i+px;
+		}
+	}
+	@for $i from 1 through 100 {
+		.padding-#{$dir}-#{$i} {
+			padding-#{$dir}: $i+px;
+		}
+	}
+
+	.space-#{$dir}-none{
+		margin-#{$dir}: 0;
+	}
+
+	.padding-#{$dir}-none{
+		margin-#{$dir}: 0;
+	}
+}
+/* ----------------------------- */

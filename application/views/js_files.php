@@ -6,6 +6,8 @@
 <script type="text/javascript" src="<?php echo asset_url('libs/bootstrap/js/bootstrap.min.js') ?>"></script>
 <!-- AdminLTE JS -->
 <script type="text/javascript" src="<?php echo asset_url('libs/admin_lte/dist/js/app.min.js') ?>"></script>
+<!-- Common JS Functions -->
+<script type="text/javascript" src="<?php echo asset_url('js/common_func.js') ?>"></script>
 
 <script type="text/javascript">
 	var baseurl = <?php echo base_url(); ?>

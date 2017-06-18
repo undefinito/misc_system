@@ -14,8 +14,8 @@ class Account extends CI_Controller {
 				'body_class'  => 'layout-top-nav skin-yellow',
 				'page' 		  => 'account',
 				'view_params' => array(
-					'title'		   => 'Misc System',
-					'current_page' => 'account'
+					'title'		   => 'Misc System: Account',
+					'current_page' => 'account',
 				),
 				'js_paths'	  => array(
 					'account' => 'main_js',

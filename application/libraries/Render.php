@@ -59,6 +59,7 @@ class Render {
 		switch ($params['page'])
 		{
 			case 'home':
+			case 'account':
 				// top navigation menu
 				$_menu = $this->menuHTML('top-nav',$params['view_params']);
 				if(file_exists(views_path("/{$params['page']}.php")))

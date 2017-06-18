@@ -32,7 +32,11 @@
 							<li class="user-body">
 								<div class="row">
 								<div class="col-xs-6 text-center">
-									<a href="<?php echo base_url('account') ?>">Account</a>
+									<a 
+										<?php if ($current_page!=='account'): ?>
+										href="<?php echo base_url('account') ?>"
+										<?php endif ?>
+										>Account</a>
 								</div>
 								<div class="col-xs-6 text-center">
 									<a href="<?php echo base_url('settings') ?>">Settings</a>
