@@ -36,6 +36,11 @@
   background-color: #f39c12;
 }
 
+/* purple */
+.bg-purple {
+  background-color: #8E24AA;
+}
+
 .bg-none {
   background-color: transparent;
 }
@@ -3281,11 +3286,3 @@
   }
 }
 /* SYSTEM-SPECIFIC STYLES */
-.list-group-item.active {
-  background-color: #f39c12;
-  border-color: #f39c12;
-}
-.list-group-item.active:focus, .list-group-item.active:hover {
-  background-color: #f39c12;
-  border-color: #f39c12;
-}

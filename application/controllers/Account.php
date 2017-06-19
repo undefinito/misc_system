@@ -3,6 +3,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Account extends CI_Controller {
 
+	private $render_params = array();
+
+
+	public function __construct()
+	{
+		parent::__construct();
+
+		$this->render_params = $this->config->item('page_render_params');
+	}
+
 	public function index()
 	{
 		if( ! isset($_SESSION))
@@ -10,20 +20,15 @@ class Account extends CI_Controller {
 			session_start();
 		}
 
-		$render_params = array(
-				'body_class'  => 'layout-top-nav skin-purple',
-				'page' 		  => 'account',
-				'view_params' => array(
+		$this->render_params['top_nav']['page'] = 'account';
+		$this->render_params['top_nav']['view_params'] = array(
 					'title'		   => 'Misc System: Account',
 					'current_page' => 'account',
-				),
-				'js_paths'	  => array(
-					'account' => 'main_js',
-				),
-			);
+				);
+		$this->render_params['top_nav']['js_paths'] = array('account' => 'main_js');
 		$this->load->library('render');
 
-		$this->render->page($render_params);
+		$this->render->page($this->render_params['top_nav']);
 	}
 
 	public function edit($what=null,$user_id=null)

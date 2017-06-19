@@ -71,7 +71,7 @@ class Render {
 					// show failed msg
 					$this->CI->load->view('failed',array('view_name'=>$params['page']));
 				}
-				$_page_parts['body'] = $_menu . $_page_parts['body'];
+				$_page_parts['body'] = $_menu . '<div class="content-wrapper">'. $_page_parts['body'] . "</div>";
 				break;
 				
 			default:

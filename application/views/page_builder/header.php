@@ -13,8 +13,8 @@
 	<!-- BOOTSTRAP -->
 	<link rel="stylesheet" type="text/css" href="<?php echo asset_url('libs/bootstrap/css/bootstrap.min.css') ?>" />
 	<!-- ADMINLTE -->
-	<link rel="stylesheet" type="text/css" href="<?php echo asset_url('libs/admin_lte/dist/css/AdminLTE.min.css') ?>" />
-	<link rel="stylesheet" type="text/css" href="<?php echo asset_url('libs/admin_lte/dist/css/skins/skin-purple.min.css') ?>" />
+	<link rel="stylesheet" type="text/css" href="<?php echo asset_url('libs/admin_lte/css/AdminLTE.min.css') ?>" />
+	<link rel="stylesheet" type="text/css" href="<?php echo asset_url('libs/admin_lte/css/skins/skin-blue.min.css') ?>" />
 	<!-- FONTAWESOME -->
 	<link rel="stylesheet" type="text/css" href="<?php echo asset_url('libs/fontawesome/css/font-awesome.min.css') ?>">
 	<!-- SYSTEM-SPECIFIC CSS -->

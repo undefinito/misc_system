@@ -19,7 +19,7 @@
 			</div>
 			<div class="row">
 				<div class="col-md-6 col-md-offset-3">
-					<button id="sign_in_btn" type="button" class="btn btn-warning btn-sm btn-block btn-flat">
+					<button id="sign_in_btn" type="button" class="btn btn-default btn-sm btn-block">
 						<i class="fa fa-sign-in fa-lg"></i>
 						Sign In
 					</button>

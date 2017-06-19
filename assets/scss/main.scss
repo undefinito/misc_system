@@ -4,14 +4,14 @@
 
 /* SYSTEM-SPECIFIC STYLES */
 
-.list-group-item{
-	&.active{
-		background-color: map-get($all-colors,yellow);
-		border-color: map-get($all-colors,yellow);
-		&:focus,
-		&:hover{
-			background-color: map-get($all-colors,yellow);
-			border-color: map-get($all-colors,yellow);
-		}
-	}
-}
+// .list-group-item{
+// 	&.active{
+// 		background-color: map-get($all-colors,blue);
+// 		border-color: map-get($all-colors,blue);
+// 		&:focus,
+// 		&:hover{
+// 			background-color: map-get($all-colors,blue);
+// 			border-color: map-get($all-colors,blue);
+// 		}
+// 	}
+// }

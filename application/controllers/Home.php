@@ -19,7 +19,7 @@ class Home extends CI_Controller {
 			session_start();
 		}
 
-		$page = empty($_SESSION['logged_in']) ? 'login' : 'home';
+		$page = empty($_SESSION['logged_in']) ? 'login' : 'top_nav';
 
 		// if logged in
 		if( ! empty($_SESSION['logged_in']))
