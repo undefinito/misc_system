@@ -20,7 +20,7 @@ $config['page_render_params']['login'] = array(
 		),
 	);
 $config['page_render_params']['top_nav'] = array(
-		'body_class'  => 'layout-top-nav skin-blue',
+		'body_class'  => 'layout-top-nav skin-black',
 		'page' 		  => 'home',
 		'view_params' => array(
 			'title'		   => 'Misc System',
@@ -31,5 +31,5 @@ $config['page_render_params']['top_nav'] = array(
 		),
 	);
 $config['page_render_params']['side_nav'] = array(
-		'body_class'  => 'layout-top-nav skin-blue',
+		'body_class'  => 'layout-top-nav skin-black',
 	);

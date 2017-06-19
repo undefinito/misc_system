@@ -13,31 +13,38 @@
 			<div class="col-xs-12">
 				
 				<!-- SYSTEMS -->
-				<?php foreach ($systems_list as $i => $system): ?>
+				<?php 
+					$_col_count = 2;
+					foreach ($systems_list as $i => $system): ?>
 					
-					<?php if (($i%3)==0): ?>
+					<?php if (($i%$_col_count)==0): ?>
 						<div class="row">
 					<?php endif ?>
 					
-						<div class="col-lg-4">
-							<div class="box box-default box-solid">
-								<a href="<?php echo base_url($system['url']) ?>" class="shine">
-									<div class="box-header with-border">
-										<b class="box-title"><?php echo $system['title'] ?></b>
-										<span  class="label bg-purple pull-right">
-											<i class="fa fa-arrow-right"></i>
-										</span>
+						<div class="<?php echo "col-lg-",@intval(12/$_col_count) ?>">
+							
+							<?php 
+								$r_num = rand(0,4);
+								$color = array('bg-red','bg-yellow','bg-purple','bg-blue','bg-aqua');
+							 ?>
+
+							<a href="<?php echo base_url($system['url']) ?>">
+								<div class="small-box <?php echo $color[$r_num] ?>">
+									<div class="inner">
+										<h3><?php echo $system['title'] ?></h3>
+
+										<p><?php echo $system['description'] ?></p>
 									</div>
-								</a>
-								<div class="box-body">
-									<?php echo $system['description'] ?>
+									<div class="icon">
+										<i class="fa <?php echo empty($system['icon']) ? 'fa-server' : $system['icon'] ?>"></i>
+									</div>
 								</div>
-							</div>
-							<!-- box -->
+							</a>
+
 						</div>
 						<!-- col -->
 
-					<?php if ((($i+1)%3)==0): ?>
+					<?php if ((($i+1)%$_col_count)==0): ?>
 						</div>
 						<!-- row -->
 					<?php endif ?>
