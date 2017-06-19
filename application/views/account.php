@@ -135,54 +135,91 @@
 					<!-- box-body -->
 				</div>
 				<!-- box -->
-
-				<div id="secu_tab" class="box box-warning box-solid tab-pane">
-					<div class="box-header with-border">
-						<h4 class="box-title bold">
-							<i class="fa fa-lock"></i>
-							Security
-						</h4>
-						<div class="box-tools">
-							<div class="btn-toolbar pull-right">
-								<button id="info_save_btn" type="button" class="btn btn-sm btn-default">
-									<i class="fa fa-save"></i>
-									Save
-								</button>
-							</div>
-							<!-- btn-toolbar -->
-						</div>
+				
+				<div id="secu_tab" class="tab-pane">
+					
+					<div class="callout callout-warning">
+						<i class="fa fa-thumb-tack"></i>
+						Password must be between <b>4</b> and <b>50</b> characters!
 					</div>
-					<!-- box-header -->
-					<div class="box-body">
-						
-						<div class="form-horizontal">
-							<div class="form-group">
-								<label class="control-label col-md-2">Old Password</label>
-								<div class="col-md-10">
-									<input type="password" name="old_pw" class="form-control" />
+
+					<div class="box box-warning box-solid">
+						<div class="box-header with-border">
+							<h4 class="box-title bold">
+								<i class="fa fa-lock"></i>
+								Security
+							</h4>
+							<div class="box-tools">
+								<div class="btn-toolbar pull-right">
+									<button id="secu_save_btn" type="button" class="btn btn-sm btn-default hidden">
+										<i class="fa fa-save"></i>
+										Save
+									</button>
 								</div>
-							</div>
-								
-							<div class="form-group">
-								<label class="control-label col-md-2">New Password</label>
-								<div class="col-md-10">
-									<input type="password" name="new_pw" class="form-control" readonly />
-								</div>
-							</div>
-								
-							<div class="form-group">
-								<label class="control-label col-md-2">Confirm New Password</label>
-								<div class="col-md-10">
-									<input type="password" name="new_pw" class="form-control" readonly />
-								</div>
+								<!-- btn-toolbar -->
 							</div>
 						</div>
-						<!-- form-horizontal -->
+						<!-- box-header -->
+						<div class="box-body">
 
+							<div class="form-horizontal">
+								<div class="form-group">
+									<label class="control-label col-md-2">
+										Old Password
+										<i data-check="old" class="fa fa-check text-green hidden"></i>
+									</label>
+									<div class="col-md-10">
+										<div class="input-group">
+											<input type="password" name="old_pw" class="form-control" />
+											<a data-view="pw" class="input-group-addon clickable">
+												<i class="fa fa-eye"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+									
+								<div class="form-group">
+									<label class="control-label col-md-2">
+										New Password
+										<i data-check="new" class="fa fa-check text-green hidden"></i>
+									</label>
+									<div class="col-md-10">
+										<div class="input-group">
+											<input type="password" name="new_pw" class="form-control" readonly="readonly" />
+
+											<a data-view="pw" class="input-group-addon clickable">
+												<i class="fa fa-eye"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+									
+								<div class="form-group">
+									<label class="control-label col-md-2">
+										Confirm New Password
+										<i data-check="confirm" class="fa fa-check text-green hidden"></i>
+									</label>
+									<div class="col-md-10">
+										<div class="input-group">
+											<input type="password" data-confirm="new_pw" class="form-control" readonly="readonly" />
+
+											<a data-view="pw" class="input-group-addon clickable">
+												<i class="fa fa-eye"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+							<!-- form-horizontal -->
+
+						</div>
+						<!-- box-body -->
 					</div>
-					<!-- box-body -->
+					<!-- box -->
+					
 				</div>
-				<!-- box -->
+				<!-- #secu_tab -->
+
 			</div>
 			<!-- tab-content -->
 		</div>

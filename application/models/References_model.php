@@ -40,8 +40,15 @@ class References_model extends CI_Model {
 			// edit user account information
 			case 'edit_info':
 				$ref_array = $this->getReferenceFor('user_info');
-				$ref_array = array_column($ref_array,'col_name','input_name');
+
+			case 'edit_password':
+					
+				if( ! isset($ref_array))
+				{
+					$ref_array = $this->getReferenceFor('user');
+				}
 				
+				$ref_array = array_column($ref_array,'col_name','input_name');
 				$result_arr = array();
 				foreach ($data_array as $key => $value)
 				{
@@ -52,7 +59,7 @@ class References_model extends CI_Model {
 				}
 
 				return empty($result_arr) ? array() : $result_arr;
-			
+
 			default:
 				// ERROR: unreqcognized purpose
 				return false;	

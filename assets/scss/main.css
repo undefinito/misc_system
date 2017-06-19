@@ -1,3 +1,9 @@
+/* MISC */
+.clickable {
+  cursor: pointer;
+}
+
+/* ----------------------------- */
 /* TYPOGRAPHY */
 .bold {
   font-weight: 700;
@@ -3283,5 +3289,3 @@
   background-color: #f39c12;
   border-color: #f39c12;
 }
-
-/*# sourceMappingURL=main.css.map */

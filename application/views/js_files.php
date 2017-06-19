@@ -12,6 +12,7 @@
 <script type="text/javascript">
 	var baseurl = <?php echo base_url(); ?>;
 	var user_id = <?php echo json_encode(empty($_SESSION['user_data']['id']) ? '' : $_SESSION['user_data']['id']) ?>;
+	var user_name = <?php echo json_encode(empty($_SESSION['user_data']['username']) ? '' : $_SESSION['user_data']['username']) ?>;
 </script>
 
 <?php if ( ! empty($js_paths) && is_array($js_paths)): ?>

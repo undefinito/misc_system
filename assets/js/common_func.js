@@ -34,25 +34,9 @@ function ajaxRequest(options)
 		return false;
 	}
 
-
-	var opt_keys = Object.keys(options);
-	for (var i = 0; i < opt_keys.length; i++)
-	{
-		switch(opt_keys[i])
-		{
-			case 'url':
-				options['url'] = options['url'] || '';
-				break;
-
-			case 'method':
-				options['method'] = options['method'] || 'POST';
-				break;
-
-			case 'dataType':
-				options['dataType'] = options['dataType'] || 'json';
-				break;
-		}
-	}
+	options['url'] = options['url'] || '';
+	options['method'] = options['method'] || 'POST';
+	options['dataType'] = options['dataType'] || 'json';
 
 	return $.ajax(options);
 }

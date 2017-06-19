@@ -29,7 +29,8 @@ class User_model extends CI_Model {
 				'ui.first_name',
 				'ui.middle_name',
 				'ui.last_name',
-				"CONCAT(ui.last_name,', ',ui.first_name,' ',LEFT(ui.middle_name,1),'.') full_name",
+				"CONCAT(ui.first_name,' ',LEFT(ui.middle_name,1),'.',' ',ui.last_name) full_name",
+				"CONCAT(ui.last_name,', ',ui.first_name,' ',LEFT(ui.middle_name,1),'.') full_name2",
 				'u.date_created',
 				'ui.last_update',
 				"DATE_FORMAT(u.date_created,'%M %Y') user_since",
@@ -90,6 +91,26 @@ class User_model extends CI_Model {
 		$this->user_db->set($user_data);
 		$this->user_db->where('user_id',$id);
 		$this->user_db->update('user_info');
+		$affected = $this->user_db->affected_rows();
+		return is_int($affected);
+	}
+
+	/**
+	 * updatePassword - update user password
+	 * @param  int 	  $id user id
+	 * @param  string $pw new password
+	 * @return boolean
+	 */
+	public function updatePassword($id=null,$pw=null)
+	{
+		if(empty($id) OR empty($pw))
+		{
+			return false;
+		}
+
+		$this->user_db->set('password',$pw);
+		$this->user_db->where('id',$id);
+		$this->user_db->update('user');
 		$affected = $this->user_db->affected_rows();
 		return is_int($affected);
 	}
