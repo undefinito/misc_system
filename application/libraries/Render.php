@@ -1,5 +1,4 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Render {
 
@@ -37,20 +36,20 @@ class Render {
 			);
 
 		// load header <head>
-		if(file_exists(views_path("/page_builder/header.php")))
+		if(file_exists(views_path("page_builder/header.php")))
 		{
 			$_page_parts['header'] = $this->CI->load->view('page_builder/header',$params['view_params'],true);
 		}
 
 		// load js files
-		if(file_exists(views_path("/js_files.php")))
+		if(file_exists(views_path("js_files.php")))
 		{
 			$_js_params = array_merge($params['view_params'],array('js_paths'=>$params['js_paths']));
 			$_page_parts['js'] = $this->CI->load->view('js_files',$_js_params,true);
 		}
 
 		// load footer <footer>
-		if(file_exists(views_path("/page_builder/footer.php")))
+		if(file_exists(views_path("page_builder/footer.php")))
 		{
 			$_page_parts['footer'] = $this->CI->load->view('page_builder/footer',$params['view_params'],true);
 		}
@@ -62,10 +61,10 @@ class Render {
 			case 'account':
 				// top navigation menu
 				$_menu = $this->menuHTML('top-nav',$params['view_params']);
-				if(file_exists(views_path("/{$params['page']}.php")))
+				if(file_exists(views_path("pages/overview/{$params['page']}.php")))
 				{
 					// load actual view
-					$_page_parts['body'] = $this->CI->load->view($params['page'],$params['view_params'],true);
+					$_page_parts['body'] = $this->CI->load->view("pages/overview/{$params['page']}",$params['view_params'],true);
 				}
 				else
 				{
@@ -76,10 +75,10 @@ class Render {
 				break;
 				
 			default:
-				if(file_exists(views_path("/{$params['page']}.php")))
+				if(file_exists(views_path("pages/overview/{$params['page']}.php")))
 				{
 					// load actual view
-					$_page_parts['body'] = $this->CI->load->view($params['page'],$params['view_params'],true);
+					$_page_parts['body'] = $this->CI->load->view("pages/overview/{$params['page']}",$params['view_params'],true);
 				}
 				else
 				{
@@ -92,7 +91,7 @@ class Render {
 
 
 		// load page to contain everything
-		if(file_exists(views_path("/page_builder/body.php")))
+		if(file_exists(views_path("page_builder/body.php")))
 		{
 			$this->CI->load->view('page_builder/body',$_page_parts);
 		}
@@ -119,7 +118,7 @@ class Render {
 
 			case 'top-nav':
 				// top navigation menu
-				if(file_exists(views_path("/page_builder/menu/top_nav.php")))
+				if(file_exists(views_path("page_builder/menu/top_nav.php")))
 				{
 					if( ! is_array($view_params) && ! is_null($view_params))
 					{

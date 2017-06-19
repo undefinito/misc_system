@@ -104,7 +104,7 @@ $autoload['helper'] = array('url','utility');
 |
 */
 
-$autoload['config'] = array();
+$autoload['config'] = array('custom_config');
 
 
 /*

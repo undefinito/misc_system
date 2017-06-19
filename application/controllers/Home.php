@@ -1,12 +1,15 @@
-<?php
-defined('BASEPATH') OR exit('No direct script access allowed');
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Home extends CI_Controller {
+
+	private $render_params = array();
 
 	public function __construct()
 	{
 		parent::__construct();
 		$this->load->model('systems_model','sys');
+
+		$this->render_params = $this->config->item('page_render_params');
 	}
 
 	public function index()
@@ -16,18 +19,7 @@ class Home extends CI_Controller {
 			session_start();
 		}
 
-		$render_params = array(
-				'body_class'  => 'hold-transition login-page',
-				'page' 		  => 'login',
-				'view_params' => array(
-					'title'		   => 'Misc System',
-					'current_page' => 'login'
-				),
-				'js_paths'	  => array(
-					'auth/login' => 'main_js',
-				),
-			);
-
+		$page = empty($_SESSION['logged_in']) ? 'login' : 'home';
 
 		// if logged in
 		if( ! empty($_SESSION['logged_in']))
@@ -35,18 +27,11 @@ class Home extends CI_Controller {
 			// get all systems
 			$systems = $this->sys->getAll();
 
-			$render_params['view_params']['systems_list'] = empty($systems) ? array() : $systems;
-
-			$render_params['body_class'] = 'layout-top-nav skin-yellow';
-			$render_params['page'] 		 = 'home';
-			$render_params['view_params']['current_page'] = 'home';
-			$render_params['js_paths'] = array(
-					'home/home'	=> 'main_js'
-				);
+			$this->render_params['top_nav']['view_params']['systems_list'] = empty($systems) ? array() : $systems;
 		}
 
 		$this->load->library('render');
 
-		$this->render->page($render_params);
+		$this->render->page($this->render_params[$page]);
 	}
 }

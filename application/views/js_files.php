@@ -15,6 +15,7 @@
 	var user_name = <?php echo json_encode(empty($_SESSION['user_data']['username']) ? '' : $_SESSION['user_data']['username']) ?>;
 </script>
 
+<!-- Page-specific JS -->
 <?php if ( ! empty($js_paths) && is_array($js_paths)): ?>
 	<?php foreach ($js_paths as $key => $value): ?>
 		<?php switch ($key):

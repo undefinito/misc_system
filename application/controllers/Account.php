@@ -11,7 +11,7 @@ class Account extends CI_Controller {
 		}
 
 		$render_params = array(
-				'body_class'  => 'layout-top-nav skin-yellow',
+				'body_class'  => 'layout-top-nav skin-purple',
 				'page' 		  => 'account',
 				'view_params' => array(
 					'title'		   => 'Misc System: Account',

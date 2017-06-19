@@ -7,7 +7,7 @@
 <body <?php echo empty($body_class)?'':"class='{$body_class}'" ?>>
 	<?php echo empty($body)?'':$body ?>
 
-	<?php echo empty($js)?'':$js ?>
 	<?php echo empty($footer)?'':$footer ?>
+	<?php echo empty($js)?'':$js ?>
 </body>
 </html>

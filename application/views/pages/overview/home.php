@@ -22,7 +22,7 @@
 							<a href="<?php echo base_url($system['url']) ?>" class="shine">
 								<div class="box-header with-border">
 									<b class="box-title"><?php echo $system['title'] ?></b>
-									<span  class="label label-warning pull-right">
+									<span  class="label bg-purple pull-right">
 										<i class="fa fa-arrow-right"></i>
 									</span>
 								</div>
