@@ -54,39 +54,101 @@ class Render {
 			$_page_parts['footer'] = $this->CI->load->view('page_builder/footer',$params['view_params'],true);
 		}
 
+		if( ! isset($_SESSION))
+		{
+			session_start();
+		}
+		
+
 		// determine first the actual view format/layout
+		$_menu = '';
+		$_page_dir = '';
+		$has_content_wrapper = true;
+		$has_content_header = false;
 		switch ($params['page'])
 		{
 			case 'home':
 			case 'account':
 				// top navigation menu
 				$_menu = $this->menuHTML('top-nav',$params['view_params']);
-				if(file_exists(views_path("pages/overview/{$params['page']}.php")))
+				$_page_dir = "pages/overview/{$params['page']}";
+				break;
+
+			case 'login':
+				$_page_dir = "pages/overview/{$params['page']}";
+				$has_content_wrapper = false;
+				break;
+
+
+			case 'savings_home':
+				$has_content_header = true;
+				$_content_header_arr = array(
+						'_content_header' => array(
+							'title'      => 'Home',
+							'breadcrumb' => array()
+							)
+						);
+
+			case 'savings_pf':
+				$has_content_header = true;
+				$this->CI->load->model('systems_model','sys');
+				$_menu_arr = $this->CI->sys->getMenuOf(1);
+
+				// sort menu item list according to menu order
+				$_menu_arr = array_column($_menu_arr, null,'menu_order');
+				ksort($_menu_arr);
+
+				// content header
+				if (empty($_content_header_arr))
 				{
-					// load actual view
-					$_page_parts['body'] = $this->CI->load->view("pages/overview/{$params['page']}",$params['view_params'],true);
+					$_content_header_arr = array(
+							'_content_header' => array(
+								'title'      => 'Portfolio',
+								'breadcrumb' => array()
+								)
+							);
+					$_content_header_arr['_content_header']['breadcrumb'] = $this->CI->sys->getContentHeaderOf(1);
+					// sort content header breadcrumb list according to content header order
+					$_content_header_arr['_content_header']['breadcrumb'] = array_column($_content_header_arr['_content_header']['breadcrumb'], null,'header_order');
+					ksort($_content_header_arr['_content_header']['breadcrumb']);
 				}
-				else
-				{
-					// show failed msg
-					$this->CI->load->view('failed',array('view_name'=>$params['page']));
-				}
-				$_page_parts['body'] = $_menu . '<div class="content-wrapper">'. $_page_parts['body'] . "</div>";
+				$_content_header = $this->headerHTML($params['page'],array_merge($params['view_params'],$_content_header_arr));
+				// side navigation
+				$_menu = $this->menuHTML('side-nav',array_merge($params['view_params'],array('_menu_arr'=>$_menu_arr)));
+				$_page_dir = "pages/savings-monitor/{$params['page']}";
 				break;
 				
 			default:
-				if(file_exists(views_path("pages/overview/{$params['page']}.php")))
-				{
-					// load actual view
-					$_page_parts['body'] = $this->CI->load->view("pages/overview/{$params['page']}",$params['view_params'],true);
-				}
-				else
-				{
-					// show failed msg
-					$this->CI->load->view('failed',array('view_name'=>$params['page']));
-					return;
-				}
-				break;
+				// show failed msg
+				$this->CI->load->view('failed',array('view_name'=>$params['page']));
+				return;
+		}
+
+		if(file_exists(views_path("{$_page_dir}.php")))
+		{
+			// load actual view
+			$_page_parts['body'] = $this->CI->load->view("{$_page_dir}",$params['view_params'],true);
+		}
+		else
+		{
+			// show failed msg
+			$this->CI->load->view('failed',array('view_name'=>$params['page']));
+		}
+
+		if($has_content_wrapper)
+		{
+			if ($has_content_header)
+			{
+				$_page_parts['body'] = $_menu . ' <div class="content-wrapper">'. $_content_header . $_page_parts['body'] . "</div>";
+			}
+			else
+			{
+				$_page_parts['body'] = $_menu . ' <div class="content-wrapper">'. $_page_parts['body'] . "</div>";
+			}
+		}
+		else
+		{
+			$_page_parts['body'] = $_menu . $_page_parts['body'];
 		}
 
 
@@ -114,6 +176,20 @@ class Render {
 		switch ($which)
 		{
 			case 'side-nav':
+				// side navigation menu
+				if(file_exists(views_path("page_builder/menu/side_nav.php")))
+				{
+					if( ! is_array($view_params) && ! is_null($view_params))
+					{
+						$view_params = null;
+					}
+
+					return $this->CI->load->view('page_builder/menu/side_nav',$view_params,true);
+				}
+				else
+				{
+					return null;
+				}
 				break;
 
 			case 'top-nav':
@@ -137,5 +213,38 @@ class Render {
 				return null;
 		}
 
+	}
+
+	/**
+	 * headerHTML - generate html of content/page header
+	 * @param  string $which
+	 * @param  array $view_params
+	 * @return string
+	 */
+	private function headerHTML($which=null,$view_params=null)
+	{
+		switch ($which)
+		{
+			case 'savings_pf':
+				// content header
+				if(file_exists(views_path("page_builder/content_header.php")))
+				{
+					if( ! is_array($view_params) && ! is_null($view_params))
+					{
+						$view_params = null;
+					}
+
+					return $this->CI->load->view('page_builder/content_header',$view_params,true);
+				}
+				else
+				{
+					return null;
+				}
+				break;
+			
+			case 'savings_home':
+			default:
+				return null;
+		}
 	}
 }

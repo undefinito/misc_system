@@ -19,7 +19,7 @@ $config['page_render_params']['login'] = array(
 			'auth/login' => 'main_js',
 		),
 	);
-$config['page_render_params']['top_nav'] = array(
+$config['page_render_params']['home'] = array(
 		'body_class'  => 'layout-top-nav skin-black',
 		'page' 		  => 'home',
 		'view_params' => array(
@@ -30,6 +30,36 @@ $config['page_render_params']['top_nav'] = array(
 			'home/home' => 'main_js',
 		),
 	);
-$config['page_render_params']['side_nav'] = array(
+$config['page_render_params']['account'] = array(
 		'body_class'  => 'layout-top-nav skin-black',
+		'page' 		  => 'account',
+		'view_params' => array(
+			'title'		   => 'Misc System: Account',
+			'current_page' => 'account'
+		),
+		'js_paths'	  => array('account' => 'main_js'),
+	);
+
+/////////////////////
+// SAVINGS MONITOR //
+/////////////////////
+$config['page_render_params']['savings_monitor'] = array(
+		'body_class'  => 'sidebar-mini skin-black',
+		'page' 		  => 'savings_home',
+		'view_params' => array(
+			'title'		   => 'Savings Monitor',
+			'current_page' => 'savings_home',
+		),
+		'js_paths'	  => array('savings_home' => 'main_js'),
+	);
+$config['page_render_params']['savings_portfolio'] = array(
+		'body_class'  => 'sidebar-mini skin-black',
+		'page' 		  => 'savings_pf',
+		'view_params' => array(
+			'title'		   => 'SvM: Portfolio',
+			'current_page' => 'savings_pf',
+		),
+		'js_paths'	  => array(
+				'savings_pf' => array('main_js','objects'),
+			),
 	);

@@ -17,6 +17,8 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo asset_url('libs/admin_lte/css/skins/skin-black.min.css') ?>" />
 	<!-- FONTAWESOME -->
 	<link rel="stylesheet" type="text/css" href="<?php echo asset_url('libs/fontawesome/css/font-awesome.min.css') ?>">
+	<!-- DATATABLES -->
+	<link rel="stylesheet" type="text/css" href="<?php echo asset_url('libs/datatables/DataTables-1.10.15/css/dataTables.bootstrap.min.css') ?>">
 	<!-- SYSTEM-SPECIFIC CSS -->
 	<link rel="stylesheet" type="text/css" href="<?php echo asset_url('scss/main.css') ?>">
 </head>

@@ -19,7 +19,7 @@ class Home extends CI_Controller {
 			session_start();
 		}
 
-		$page = empty($_SESSION['logged_in']) ? 'login' : 'top_nav';
+		$page = empty($_SESSION['logged_in']) ? 'login' : 'home';
 
 		// if logged in
 		if( ! empty($_SESSION['logged_in']))
@@ -27,7 +27,7 @@ class Home extends CI_Controller {
 			// get all systems
 			$systems = $this->sys->getAll();
 
-			$this->render_params['top_nav']['view_params']['systems_list'] = empty($systems) ? array() : $systems;
+			$this->render_params['home']['view_params']['systems_list'] = empty($systems) ? array() : $systems;
 		}
 
 		$this->load->library('render');

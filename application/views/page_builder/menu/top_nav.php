@@ -1,4 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
 <header class="main-header">
 	<nav class="navbar navbar-static-top">
 		<div class="container">
@@ -45,8 +46,7 @@
 								<!-- /.row -->
 							</li>
 							<!-- Menu Footer-->
-							<li class="user-footer">
-							</li>
+							<!-- <li class="user-footer"> </li> -->
 						</ul>
 					</li>
 

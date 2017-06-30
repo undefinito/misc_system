@@ -19,16 +19,10 @@ class Account extends CI_Controller {
 		{
 			session_start();
 		}
-
-		$this->render_params['top_nav']['page'] = 'account';
-		$this->render_params['top_nav']['view_params'] = array(
-					'title'		   => 'Misc System: Account',
-					'current_page' => 'account',
-				);
-		$this->render_params['top_nav']['js_paths'] = array('account' => 'main_js');
+		
 		$this->load->library('render');
 
-		$this->render->page($this->render_params['top_nav']);
+		$this->render->page($this->render_params['account']);
 	}
 
 	public function edit($what=null,$user_id=null)
