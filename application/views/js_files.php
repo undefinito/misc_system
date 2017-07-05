@@ -8,6 +8,10 @@
 <script type="text/javascript" src="<?php echo asset_url('libs/admin_lte/js/app.min.js') ?>"></script>
 <!-- DataTables JS -->
 <script type="text/javascript" src="<?php echo asset_url('libs/datatables/datatables.min.js') ?>"></script>
+<!-- Inputmask JS -->
+<script type="text/javascript" src="<?php echo asset_url('libs/inputmask/jquery.inputmask.bundle.min.js') ?>"></script>
+<!-- Filter_input JS -->
+<script type="text/javascript" src="<?php echo asset_url('libs/filter_input/filter_input.js') ?>"></script>
 <!-- Common JS Functions -->
 <script type="text/javascript" src="<?php echo asset_url('js/common_func.js') ?>"></script>
 

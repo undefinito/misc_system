@@ -13,7 +13,7 @@
 					</h4>
 					<div class="box-tools">
 						
-						<a data-toggle="modal" data-target="#action_modal" data-action="add_account" class="btn btn-default">
+						<a data-toggle="modal" data-target="#action_modal" data-action="add_account" data-id="<?php echo @intval($_SESSION['user_data']['id']) ?>" class="btn btn-default btn-sm">
 							<i class="fa fa-plus-square fa-fw"></i>
 							Add Account
 						</a>
@@ -21,7 +21,7 @@
 					</div>
 				</div>
 				<div class="box-body">
-					<table id="accounts_tbl" class="table">
+					<table id="accounts_tbl" class="table display">
 						<thead>
 							<th class="col-account">Account #</th>
 							<th class="col-amount">Current Amount</th>
@@ -38,3 +38,12 @@
 
 </section>
 <!-- content -->
+
+<div id="action_modal" class="modal" data-keyboard="false" data-backdrop="static">
+	<div class="modal-dialog modal-black">
+		<div class="modal-content"></div>
+		<!-- modal-content -->
+	</div>
+	<!-- modal-dialog -->
+</div>
+<!-- #action_modal -->

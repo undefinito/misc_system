@@ -3286,3 +3286,84 @@
   }
 }
 /* SYSTEM-SPECIFIC STYLES */
+.modal-dialog.modal-red > .modal-content > .modal-header {
+  background-color: #dd3b49;
+  border-bottom-color: #dd3b49;
+}
+.modal-dialog.modal-red > .modal-content > .modal-footer {
+  background-color: #dd3b49;
+  border-bottom-color: #dd3b49;
+}
+.modal-dialog.modal-red > .modal-content > .modal-body {
+  background-color: white;
+}
+
+.modal-dialog.modal-black > .modal-content > .modal-header {
+  background-color: #4d4d4d;
+  border-bottom-color: #4d4d4d;
+}
+.modal-dialog.modal-black > .modal-content > .modal-header > .modal-title {
+  color: white;
+}
+.modal-dialog.modal-black > .modal-content > .modal-footer {
+  background-color: #4d4d4d;
+  border-bottom-color: #4d4d4d;
+}
+.modal-dialog.modal-black > .modal-content > .modal-body {
+  background-color: #e6e6e6;
+}
+
+.modal-dialog.modal-white > .modal-content > .modal-header {
+  background-color: #fff;
+  border-bottom-color: #fff;
+}
+.modal-dialog.modal-white > .modal-content > .modal-header button.btn-outline {
+  border-color: #333;
+  color: #333;
+}
+.modal-dialog.modal-white > .modal-content > .modal-header button.btn-outline:hover {
+  opacity: 0.7;
+}
+.modal-dialog.modal-white > .modal-content > .modal-footer {
+  background-color: #fff;
+  border-bottom-color: #fff;
+}
+.modal-dialog.modal-white > .modal-content > .modal-body {
+  background-color: white;
+}
+
+.modal-dialog.modal-gray > .modal-content > .modal-header {
+  background-color: #d2d6de;
+  border-bottom-color: #d2d6de;
+}
+.modal-dialog.modal-gray > .modal-content > .modal-footer {
+  background-color: #d2d6de;
+  border-bottom-color: #d2d6de;
+}
+.modal-dialog.modal-gray > .modal-content > .modal-body {
+  background-color: white;
+}
+
+.modal-dialog.modal-yellow > .modal-content > .modal-header {
+  background-color: #f39c12;
+  border-bottom-color: #f39c12;
+}
+.modal-dialog.modal-yellow > .modal-content > .modal-footer {
+  background-color: #f39c12;
+  border-bottom-color: #f39c12;
+}
+.modal-dialog.modal-yellow > .modal-content > .modal-body {
+  background-color: white;
+}
+
+.modal-dialog.modal-purple > .modal-content > .modal-header {
+  background-color: #8E24AA;
+  border-bottom-color: #8E24AA;
+}
+.modal-dialog.modal-purple > .modal-content > .modal-footer {
+  background-color: #8E24AA;
+  border-bottom-color: #8E24AA;
+}
+.modal-dialog.modal-purple > .modal-content > .modal-body {
+  background-color: white;
+}

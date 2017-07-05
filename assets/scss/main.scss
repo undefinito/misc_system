@@ -15,3 +15,55 @@
 // 		}
 // 	}
 // }
+
+@each $color in map-keys($all-colors)
+{
+	.modal-dialog.modal-#{$color}{
+		& > .modal-content{
+			& > .modal-header{
+				@if $color==black {
+					background-color: lighten(map-get($all-colors,$color),10%);
+					border-bottom-color: lighten(map-get($all-colors,$color),10%);
+				}
+				@else{
+					background-color: map-get($all-colors,$color);
+					border-bottom-color: map-get($all-colors,$color);
+				}
+				
+				& > .modal-title{
+					@if($color==black)
+					{
+						color: invert($color);
+					}
+				}
+
+				& button.btn-outline{
+					@if($color==white)
+					{
+						border-color: map-get($all-colors,black);
+						color: map-get($all-colors,black);
+
+						&:hover{
+							opacity: 0.7;
+						}
+					}
+				}
+			}
+
+			& > .modal-footer{
+				@if $color==black {
+					background-color: lighten(map-get($all-colors,$color),10%);
+					border-bottom-color: lighten(map-get($all-colors,$color),10%);
+				}
+				@else{
+					background-color: map-get($all-colors,$color);
+					border-bottom-color: map-get($all-colors,$color);
+				}
+			}
+
+			& > .modal-body{
+				background-color: lighten(map-get($all-colors,$color),70%);
+			}
+		}
+	}
+}
