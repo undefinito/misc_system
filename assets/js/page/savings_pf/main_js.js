@@ -8,6 +8,7 @@ $(document).ready(
 			function(e)
 			{
 				var $btn = $(this);
+				var $loading = $('<h1 class="jumbotron bg-none text-center"><span class="label label-default"><i class="fa fa-circle-o-notch fa-pulse"></i> Loading</span></h1>');
 
 				ajaxRequest({
 					url: baseurl+'page/fragment',
@@ -16,13 +17,16 @@ $(document).ready(
 					data: 
 					{
 						fragment: 'new_account'
+					},
+					beforeSend: function()
+					{
+						$('#action_modal').html($loading);
 					}
 				})
 				.done(
 					function(result)
 					{
 						$('#action_modal')
-							.find('.modal-content')
 							.html(result)
 								.find('input[name=acct_name]')
 								.trigger('focus');
@@ -74,4 +78,5 @@ $(document).ready(
 						}
 					});
 			});
+
 	});

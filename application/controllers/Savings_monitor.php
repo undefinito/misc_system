@@ -38,6 +38,7 @@ class Savings_monitor extends CI_Controller {
 			$name_to_check = $this->input->get('acct_name');
 
 			// TODO: load model for accounts
+			
 			// search if account name already exists
 			// return only boolean value
 		}

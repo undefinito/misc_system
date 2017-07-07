@@ -18,6 +18,7 @@
 
 @each $color in map-keys($all-colors)
 {
+	/* MODAL: #{$color} */
 	.modal-dialog.modal-#{$color}{
 		& > .modal-content{
 			& > .modal-header{
@@ -66,4 +67,16 @@
 			}
 		}
 	}
+
+	/* CALLOUT: #{$color} */
+	.callout.callout-#{$color}{
+		border-color: map-get($all-colors,$color);
+		background-color: lighten(map-get($all-colors,$color),10%);
+
+		@if $color==black
+		{
+			color: map-get($all-colors,white);
+		}
+	}
+
 }

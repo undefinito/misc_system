@@ -44,7 +44,7 @@ $config['page_render_params']['account'] = array(
 // SAVINGS MONITOR //
 /////////////////////
 $config['page_render_params']['savings_monitor'] = array(
-		'body_class'  => 'sidebar-mini skin-black',
+		'body_class'  => 'layout-boxed sidebar-mini skin-black',
 		'page' 		  => 'savings_home',
 		'view_params' => array(
 			'title'		   => 'Savings Monitor',
@@ -53,7 +53,7 @@ $config['page_render_params']['savings_monitor'] = array(
 		'js_paths'	  => array('savings_home' => 'main_js'),
 	);
 $config['page_render_params']['savings_portfolio'] = array(
-		'body_class'  => 'sidebar-mini skin-black',
+		'body_class'  => 'layout-boxed sidebar-mini skin-black',
 		'page' 		  => 'savings_pf',
 		'view_params' => array(
 			'title'		   => 'SvM: Portfolio',

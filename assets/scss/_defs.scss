@@ -2,6 +2,10 @@
 .clickable{
 	cursor: pointer;
 }
+
+.pointy{
+	border-radius: 0;
+}
 /* ----------------------------- */
 
 /* TYPOGRAPHY */
@@ -9,6 +13,18 @@
 .bold{
 	font-weight: 700;
 }
+
+/* FONT */
+@for $i from 1 through 50 {
+	.font-px-#{$i}{
+		font-size: $i+px;
+	}
+
+	.font-em-#{$i}{
+		font-size: $i+em;
+	}
+}
+
 
 /* ----------------------------- */
 

@@ -39,11 +39,5 @@
 </section>
 <!-- content -->
 
-<div id="action_modal" class="modal" data-keyboard="false" data-backdrop="static">
-	<div class="modal-dialog modal-black">
-		<div class="modal-content"></div>
-		<!-- modal-content -->
-	</div>
-	<!-- modal-dialog -->
-</div>
+<div id="action_modal" class="modal fade" data-keyboard="false" data-backdrop="static"></div>
 <!-- #action_modal -->
