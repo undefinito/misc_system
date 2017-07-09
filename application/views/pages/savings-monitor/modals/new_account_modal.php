@@ -1,7 +1,7 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <div class="modal-dialog modal-black">
-	<div class="alert alert-warning alert-dismissible">
+	<div class="alert bg-alt-black text-white alert-dismissible">
 		<button type="button" class="close" data-dismiss="alert">
 			<i class="fa fa-close"></i>
 		</button>
@@ -19,7 +19,7 @@
 				New Account
 
 				<div class="btn-toolbar pull-right">
-					<button class="btn btn-sm btn-flat btn-outline">
+					<button type="button" class="btn btn-sm btn-flat btn-outline" data-action="save">
 						<i class="fa fa-save"></i>
 						Save
 					</button>
@@ -35,8 +35,14 @@
 			<div class="form-horizontal">
 				<div class="form-group">
 					<label class="control-label col-lg-3">Account Name</label>
-					<div class="col-lg-9">
+					<div class="col-lg-9 has-feedback">
 						<input type="text" name="acct_name" class="form-control" />
+						<span class="help-block" data-name="acct_name">
+							<span class="label label-danger"></span>
+						</span>
+						<span class="form-control-feedback">
+							<i data-indicator="valid_name" class="fa fa-check text-green hidden"></i>
+						</span>
 					</div>
 				</div>
 				
@@ -47,7 +53,7 @@
 							<span class="input-group-addon text-green">
 								<i class="fa fa-money"></i>
 							</span>
-							<input type="text" name="initial_amt" class="form-control bold text-green" placeholder="0.00" />
+							<input type="text" name="initial_amt" class="form-control bold" placeholder="0.00" maxlength="15" />
 						</div>
 					</div>
 				</div>

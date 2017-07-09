@@ -7,3 +7,13 @@ $all-colors:
 	yellow: #f39c12, 
 	purple: #8E24AA,
 );
+
+$alt-colors: 
+(
+	red: lighten(#dd3b49,20%),
+	black: lighten(#333,20%),
+	white: lighten(#fff,20%),
+	gray: lighten(#d2d6de,20%),
+	yellow: lighten(#f39c12,20%), 
+	purple: lighten(#8E24AA,20%),
+);

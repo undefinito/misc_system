@@ -27,7 +27,7 @@ function array_to_object(arr=[], is_simple=false)
 	return o;
 }
 
-function ajaxRequest(options)
+function ajaxRequest(options,debug=false)
 {
 	if( ! options && (typeof options !== 'object'))
 	{
@@ -38,5 +38,12 @@ function ajaxRequest(options)
 	options['method'] = options['method'] || 'POST';
 	options['dataType'] = options['dataType'] || 'json';
 
-	return $.ajax(options);
+	if( ! debug)
+	{
+		return $.ajax(options);
+	}
+	else
+	{
+		return $.ajax(options).always(function(){console.log(arguments)});
+	}
 }

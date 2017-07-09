@@ -37,9 +37,40 @@
 		background-color: map-get($all-colors,$a);
 	}
 }
+/* ALT COLORS */
+@each $a in map-keys($all-colors)
+{
+	/* #{$a} */
+	.bg-alt-#{$a}
+	{
+		background-color: map-get($alt-colors,$a);
+	}
+}
 
 .bg-none{
 	background-color: transparent;
+}
+
+/* TEXT COLORS */
+@each $a in map-keys($all-colors)
+{
+	@if $a == white or $a == purple
+	{
+		/* #{$a} */
+		.text-#{$a}
+		{
+			color: map-get($all-colors,$a);
+		}
+	}
+}
+/* ALT COLORS */
+@each $a in map-keys($all-colors)
+{
+	/* #{$a} */
+	.text-alt-#{$a}
+	{
+		color: map-get($alt-colors,$a);
+	}
 }
 
 /* ------------------ */

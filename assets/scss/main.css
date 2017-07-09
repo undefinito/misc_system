@@ -446,8 +446,81 @@
   background-color: #8E24AA;
 }
 
+/* ALT COLORS */
+/* red */
+.bg-alt-red {
+  background-color: #ec929a;
+}
+
+/* black */
+.bg-alt-black {
+  background-color: #666666;
+}
+
+/* white */
+.bg-alt-white {
+  background-color: white;
+}
+
+/* gray */
+.bg-alt-gray {
+  background-color: white;
+}
+
+/* yellow */
+.bg-alt-yellow {
+  background-color: #f8c573;
+}
+
+/* purple */
+.bg-alt-purple {
+  background-color: #c058dc;
+}
+
 .bg-none {
   background-color: transparent;
+}
+
+/* TEXT COLORS */
+/* white */
+.text-white {
+  color: #fff;
+}
+
+/* purple */
+.text-purple {
+  color: #8E24AA;
+}
+
+/* ALT COLORS */
+/* red */
+.text-alt-red {
+  color: #ec929a;
+}
+
+/* black */
+.text-alt-black {
+  color: #666666;
+}
+
+/* white */
+.text-alt-white {
+  color: white;
+}
+
+/* gray */
+.text-alt-gray {
+  color: white;
+}
+
+/* yellow */
+.text-alt-yellow {
+  color: #f8c573;
+}
+
+/* purple */
+.text-alt-purple {
+  color: #c058dc;
 }
 
 /* ------------------ */
@@ -3691,6 +3764,10 @@
   }
 }
 /* SYSTEM-SPECIFIC STYLES */
+.layout-boxed {
+  background: #222d3299;
+}
+
 /* MODAL: red */
 .modal-dialog.modal-red > .modal-content > .modal-header {
   background-color: #dd3b49;

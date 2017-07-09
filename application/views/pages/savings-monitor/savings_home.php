@@ -5,7 +5,7 @@
 
 	<div class="row">
 		
-		<div class="col-lg-4">
+		<div class="col-xs-6 col-lg-4">
 			<div class="info-box bg-blue">
 				<span class="info-box-icon">
 					<i class="fa fa-money"></i>
@@ -20,7 +20,7 @@
 		</div>
 		<!-- col -->
 
-		<div class="col-lg-4">
+		<div class="col-xs-6 col-lg-4">
 			<div class="info-box bg-orange">
 				<span class="info-box-icon">
 					<i class="fa fa-tasks"></i>
@@ -29,21 +29,6 @@
 				<div class="info-box-content">
 					<span class="info-box-text">Total Transactions</span>
 					<span class="info-box-number"><?php echo @intval($_count['transaction']) ?></span>
-				</div>
-			</div>
-			<!-- ACCOUNTS info-box -->
-		</div>
-		<!-- col -->
-
-		<div class="col-lg-4">
-			<div class="info-box bg-gray">
-				<span class="info-box-icon">
-					<i class="fa fa-question"></i>
-				</span>
-
-				<div class="info-box-content">
-					<span class="info-box-text">Some other 3rd thing</span>
-					<span class="info-box-number"><?php echo @intval($_count['3rd']) ?></span>
 				</div>
 			</div>
 			<!-- ACCOUNTS info-box -->

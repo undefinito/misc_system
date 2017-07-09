@@ -33,7 +33,7 @@ class Page extends CI_Controller {
 					{
 						$html = $this->load->view('pages/savings-monitor/modals/new_account_modal',null,true);
 
-						sleep(1);
+						// sleep(1);
 						echo json_encode($html);
 						break;
 					}
