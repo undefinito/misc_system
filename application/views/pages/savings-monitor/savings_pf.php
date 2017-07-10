@@ -4,6 +4,8 @@
 	
 	<div class="row">
 		<div class="col-lg-12">
+			<div id="page_alert" hidden> </div>
+			<!-- #page_alert -->
 
 			<div class="box box-primary">
 				<div class="box-header with-border">

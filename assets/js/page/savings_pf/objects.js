@@ -9,11 +9,11 @@ var accounts_table =
 		infoFiltered: '<span class="label label-info">Filtered _MAX_</span>',
 		emptyTable: '<span class="label label-default"><i class="fa fa-remove"></i> No accounts found</span>'
 	},
-	// serverSide: true,
-	// ajax:
-	// {
-	// 	url: '/web_service/accounts',
-	// 	method: 'GET',
-	// 	dataType: 'json'
-	// }
+	serverSide: true,
+	ajax:
+	{
+		url: '/web_service/accounts',
+		method: 'GET',
+		dataType: 'json'
+	}
 };

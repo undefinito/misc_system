@@ -133,10 +133,12 @@ $(document).ready(
 							});
 					},1000);
 			})
+		// save btn
 		.on('click','.btn[data-action=save]',
 			function()
 			{
 				var $modal = $('#action_modal');
+				var name_val = $modal.find('input[name=acct_name]').val();
 				var name_is_valid = ($modal.find('input[name=acct_name]').data('is_valid') === true);
 				var account_data = 
 				{
@@ -144,13 +146,11 @@ $(document).ready(
 					amt: $modal.find('input[name=initial_amt]').val(),
 				};
 
-				console.log($modal.find('input[name=acct_name]').data('is_valid'),name_is_valid,account_data);
-
 				if( ! name_is_valid)
 				{
 					$('#action_modal')
 						.find('.help-block[data-name=acct_name] > .label')
-						.html('Account name not available.');
+						.html(name_val ? 'Account name not available.' : 'Name cannot be blank.');
 
 				}
 				else
@@ -162,7 +162,19 @@ $(document).ready(
 					.done(
 						function(result)
 						{
-							console.log(result,': ',typeof result);
+							if(result['success'])
+							{
+								$('#page_alert')
+									.slideDown()
+									.delay(4000)
+									.slideUp()
+									.attr('class',result['success'] ? 'alert alert-success' : 'alert alert-danger')
+									.html((result['success'] ? '<i class="fa fa-check"></i> ' : '<i class="fa fa-exclamation-circle"></i> ')+(result['msg'] ? result['msg'] : 'An error occurred.'));
+							}
+							else
+							{
+
+							}
 						});
 				}
 			});
