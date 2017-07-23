@@ -95,7 +95,7 @@ $(document).ready(
 					function()
 					{
 						ajaxRequest({
-								url: baseurl+'savings_monitor/account/search',
+								url: '/web_service/accounts/search',
 								method: 'GET',
 								data:
 								{
@@ -156,7 +156,7 @@ $(document).ready(
 				else
 				{
 					ajaxRequest({
-						url: baseurl+'savings_monitor/account/new',
+						url: '/web_service/accounts/create',
 						data: account_data
 					})
 					.done(
