@@ -23,7 +23,7 @@
 					</div>
 				</div>
 				<div class="box-body">
-					<table id="accounts_tbl" class="table display">
+					<table id="accounts_tbl" class="table display table-striped table-hover">
 						<thead>
 							<th class="col-account">Account #</th>
 							<th class="col-name">Account Name</th>

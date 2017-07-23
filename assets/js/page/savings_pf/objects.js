@@ -19,7 +19,7 @@ var accounts_table =
 	columnDefs: [
 		{
 			targets: 'col-account',
-			className: 'col-xs-2',
+			className: 'col-xs-2 text-center',
 			name: 'id',
 			data: 'id',
 			render: new default_func()['dt_render'],
@@ -33,13 +33,20 @@ var accounts_table =
 		},
 		{
 			targets: 'col-amount',
-			className: 'col-xs-2',
+			className: 'col-xs-2 text-right',
 			name: 'amount',
 			data: 'amount',
 			render: new default_func()['dt_render'],
 			createdCell: function(td,data,rowData,x,y)
 			{
-				$(td).addClass('text-right');
+				$(td)
+					.inputmask({
+						alias: 'decimal', 
+						autoUnmask: true, 
+						digits: 2, 
+						groupSeparator: ',', 
+						autoGroup: true 
+					});
 			}
 		},
 		{
