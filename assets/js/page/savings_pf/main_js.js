@@ -162,19 +162,19 @@ $(document).ready(
 					.done(
 						function(result)
 						{
-							if(result['success'])
-							{
-								$('#page_alert')
-									.slideDown()
-									.delay(4000)
-									.slideUp()
-									.attr('class',result['success'] ? 'alert alert-success' : 'alert alert-danger')
-									.html((result['success'] ? '<i class="fa fa-check"></i> ' : '<i class="fa fa-exclamation-circle"></i> ')+(result['msg'] ? result['msg'] : 'An error occurred.'));
-							}
-							else
-							{
+							// hide modal
+							$('#action_modal').modal('hide');
 
-							}
+							// refresh  table
+							$('#accounts_tbl').DataTable().draw();
+
+							// show alert
+							$('#page_alert')
+								.slideDown()
+								.delay(4000)
+								.slideUp()
+								.attr('class',result['success'] ? 'alert alert-success' : 'alert alert-danger')
+								.html((result['success'] ? '<i class="fa fa-check"></i> ' : '<i class="fa fa-exclamation-circle"></i> ')+(result['msg'] ? result['msg'] : 'An error occurred.'));
 						});
 				}
 			});

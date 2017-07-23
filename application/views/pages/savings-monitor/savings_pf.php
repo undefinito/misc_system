@@ -26,6 +26,7 @@
 					<table id="accounts_tbl" class="table display">
 						<thead>
 							<th class="col-account">Account #</th>
+							<th class="col-name">Account Name</th>
 							<th class="col-amount">Current Amount</th>
 							<th class="col-activity">Last Activity</th>
 						</thead>

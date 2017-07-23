@@ -47,3 +47,34 @@ function ajaxRequest(options,debug=false)
 		return $.ajax(options).always(function(){console.log(arguments)});
 	}
 }
+
+function default_func()
+{
+	this.dt_render_date = function(format)
+	{
+		return function(data,type,row,meta)
+		{
+			if(type=='display')
+			{
+				return moment(data).isValid() ? moment(data).format(format)
+						: '-';
+			}
+			else
+			{
+				return data;
+			}
+		};
+	};
+
+	this.dt_render = function(data,type,row,meta)
+	{
+		if(type=='display')
+		{
+			return !data ? '-' : data;
+		}
+		else
+		{
+			return data;
+		}
+	};
+}

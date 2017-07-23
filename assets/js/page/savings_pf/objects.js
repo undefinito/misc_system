@@ -15,5 +15,39 @@ var accounts_table =
 		url: '/web_service/accounts',
 		method: 'GET',
 		dataType: 'json'
-	}
+	},
+	columnDefs: [
+		{
+			targets: 'col-account',
+			className: 'col-xs-2',
+			name: 'id',
+			data: 'id',
+			render: new default_func()['dt_render'],
+		},
+		{
+			targets: 'col-name',
+			className: 'col-xs-5',
+			name: 'name',
+			data: 'name',
+			render: new default_func()['dt_render'],
+		},
+		{
+			targets: 'col-amount',
+			className: 'col-xs-2',
+			name: 'amount',
+			data: 'amount',
+			render: new default_func()['dt_render'],
+			createdCell: function(td,data,rowData,x,y)
+			{
+				$(td).addClass('text-right');
+			}
+		},
+		{
+			targets: 'col-activity',
+			className: 'col-xs-3',
+			name: 'date_created',
+			data: 'date_created',
+			render: new default_func()['dt_render_date']('MMM DD YYYY HH:MM A'),
+		},
+	]
 };
